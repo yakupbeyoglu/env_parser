@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+
+# kdev4
+*.kdev4
+
+#bin directories
+Bin/
+bin/
+
+# build directories
+Build/
+build/
