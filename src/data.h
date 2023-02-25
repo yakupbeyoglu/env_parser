@@ -5,39 +5,39 @@
 #include <algorithm>
 #include <stdexcept>
 namespace EnvParser {
-    class Data {
+    class data {
     public:
-        Data(std::string data):data(data){}
+        data(std::string data):value(data){}
         
-        ~Data(){}
+        ~data(){}
         
         // delete copy constructor
-        Data(const Data &) = delete;
-        Data operator = (const Data &) = delete;
+        data(const data &) = delete;
+        data operator = (const data &) = delete;
         
         // delete move constructor
-        Data(Data &&) = delete;
-        Data operator = (Data &&) = delete;
+        data(data &&) = delete;
+        data operator = (data &&) = delete;
         
         // Type casting operator overloads
         
         inline operator int()const 
         {
-            return std::stoi(data);
+            return std::stoi(value);
         }
         
         inline operator float()const 
         {
-            return std::stof(data);
+            return std::stof(value);
         }
         
         inline operator double()const {
-            return std::stod(data);
+            return std::stod(value);
         }
         
         inline operator bool()const 
         {
-            auto lower_data = Data::to_lower(data);
+            auto lower_data = data::to_lower(value);
             if(lower_data == "0" || lower_data == "false")
                 return false;
             else if(lower_data == "1" || lower_data == "true" )
@@ -51,7 +51,7 @@ namespace EnvParser {
             return value;
         }
         
-        std::string data;
+        std::string value;
     };
 }
 

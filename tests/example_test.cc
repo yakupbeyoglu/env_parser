@@ -2,17 +2,17 @@
 
 #undef ASSERT_FALSE
 #undef ASSERT_ALL
-#include "../src/Data.h"
+#include "../src/data.h"
 #include <gtest/gtest.h>
 
 TEST(DATA_TO_LOWER, BasicAssertions) {
-    EXPECT_TRUE(EnvParser::Data::to_lower("TRuE") == "true");
-    EXPECT_TRUE(EnvParser::Data::to_lower("true") == "true");
-    EXPECT_TRUE(EnvParser::Data::to_lower("123") == "123");
+    EXPECT_TRUE(EnvParser::data::to_lower("TRuE") == "true");
+    EXPECT_TRUE(EnvParser::data::to_lower("true") == "true");
+    EXPECT_TRUE(EnvParser::data::to_lower("123") == "123");
 }
 
 TEST(DATA_CONVERSION_THROW_TEST, BasicAssertions) {
-    EnvParser::Data data("test");
+    EnvParser::data data("test");
     try {
         float converted = float(data);
         FAIL();
@@ -36,10 +36,10 @@ TEST(DATA_CONVERSION_THROW_TEST, BasicAssertions) {
 }
 
 TEST(DATA_CONVERSION_TEST, BasicAssertions) {
-    EXPECT_TRUE(bool(EnvParser::Data("true")) == true);
-    EXPECT_TRUE(bool(EnvParser::Data("tRUe")) == true);
-    EXPECT_TRUE(bool(EnvParser::Data("false")) == false);
-    EXPECT_TRUE(bool(EnvParser::Data("0")) == false);
-    EXPECT_TRUE(bool(EnvParser::Data("1")) == true);        
+    EXPECT_TRUE(bool(EnvParser::data("true")) == true);
+    EXPECT_TRUE(bool(EnvParser::data("tRUe")) == true);
+    EXPECT_TRUE(bool(EnvParser::data("false")) == false);
+    EXPECT_TRUE(bool(EnvParser::data("0")) == false);
+    EXPECT_TRUE(bool(EnvParser::data("1")) == true);        
 }
 
