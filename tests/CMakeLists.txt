@@ -10,17 +10,16 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  example_test
-  example_test.cc                
+    example_test
+    example_test.cc                
 )
 
 target_link_libraries(
-example_test
-GTest::gtest_main
-#  example_librarIES
+    example_test
+    GTest::gtest_main
+    #env_parser
 )
 
 include(GoogleTest)
 gtest_discover_tests(example_test)
-
-#link_directories(${CMAKE_CURRENT_LIST_DIR}/../src/)
+link_directories(${CMAKE_CURRENT_LIST_DIR}/../src/)
